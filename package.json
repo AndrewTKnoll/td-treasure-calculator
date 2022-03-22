@@ -1,0 +1,6 @@
+{
+  "name": "TD Treasure Calculator",
+  "version": "1.0.0",
+  "description": "Helper tool that calculates TD treasure values",
+  "private": true
+}
