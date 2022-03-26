@@ -1,8 +1,6 @@
 import React, { Component, ChangeEvent } from "react";
 
-import { Player } from "model/player";
-
-type Token = "sixthLevel" | "rareEnhancer" | "charmOfTreasureBoosting" | "charmOfAvarice" | "charmOfGoodFortune" | "ringOfRiches" | "hornOfPlenty" | "amuletOfTreasureFinding" | "silverNugget" | "goldNugget" | "platinumNugget";
+import { Player, TokenName } from "model/player";
 
 interface PlayerRowComponentProps {
 	player: Player;
@@ -12,7 +10,7 @@ interface PlayerRowComponentState {}
 
 export class PlayerRowComponent extends Component<PlayerRowComponentProps, PlayerRowComponentState> {
 
-	private setToken(tokenName: Token, event: ChangeEvent<HTMLInputElement>) {
+	private setToken(tokenName: TokenName, event: ChangeEvent<HTMLInputElement>) {
 		this.props.player[tokenName] = event.target.checked;
 		this.props.onChange();
 	}

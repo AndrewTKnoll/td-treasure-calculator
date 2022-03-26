@@ -45,7 +45,8 @@
 		font-weight: 700;
 	}
 
-	.treasure-calculator__title {
+	.treasure-calculator__title,
+	.treasure-calculator__fill-button-col {
 		padding-bottom: 0.5rem;
 
 		&--sixth-level {
@@ -96,6 +97,10 @@
 		&--platinum {
 			width: 36%;
 			background: #ccc;
+		}
+
+		button {
+			margin-bottom: 0;
 		}
 	}
 }
