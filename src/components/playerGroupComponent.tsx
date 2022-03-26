@@ -24,30 +24,45 @@ export class PlayerGroupComponent extends Component<PlayerGroupComponentProps, P
 	}
 
 	override render() {
-		return <div className="player-group row">
-			<div className="player-group__count-col col">
-				<select value={this.props.group.playerCount}
-					onChange={this.playerCountUpdated.bind(this)}>
+		return <>
+			<div className="player-group-spacer row">
+				<div className="player-group-spacer__sixth-level col"></div>
+				<div className="player-group-spacer__rare-te col"></div>
+				<div className="player-group-spacer__treasure-boosting col"></div>
+				<div className="player-group-spacer__avarice col"></div>
+				<div className="player-group-spacer__good-fortune col"></div>
+				<div className="player-group-spacer__ring col"></div>
+				<div className="player-group-spacer__horn col"></div>
+				<div className="player-group-spacer__amulet col"></div>
+				<div className="player-group-spacer__silver col"></div>
+				<div className="player-group-spacer__gold col"></div>
+				<div className="player-group-spacer__platinum col"></div>
+			</div>
+			<div className="player-group row">
+				<div className="player-group__count-col col">
+					<select value={this.props.group.playerCount}
+						onChange={this.playerCountUpdated.bind(this)}>
 
-					{Array(10 - this.props.group.firstPlayer).fill(0).map((value, index) => {
-						return <option key={index}
-							value={index + 1}>
+						{Array(10 - this.props.group.firstPlayer).fill(0).map((value, index) => {
+							return <option key={index}
+								value={index + 1}>
 
-							{index + 1}
-						</option>;
+								{index + 1}
+							</option>;
+						})}
+					</select>
+				</div>
+				<div className="player-group__player-col col">
+					{this.props.group.players.map((player, index) => {
+						return <PlayerRowComponent key={index}
+							player={player}
+							onChange={this.props.onChange}/>;
 					})}
-				</select>
+				</div>
+				<div className="player-group__group-total-col col">
+					{this.props.group.totalTreasure}
+				</div>
 			</div>
-			<div className="player-group__player-col col">
-				{this.props.group.players.map((player, index) => {
-					return <PlayerRowComponent key={index}
-						player={player}
-						onChange={this.props.onChange}/>;
-				})}
-			</div>
-			<div className="player-group__group-total-col col">
-				{this.props.group.totalTreasure}
-			</div>
-		</div>;
+		</>;
 	}
 }
