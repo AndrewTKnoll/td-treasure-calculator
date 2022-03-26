@@ -1,8 +1,70 @@
 .player-row {
-	margin-bottom: 1rem;
 
-	.col {
+	.player-row__token-wrapper {
+		width: calc(100% - 4rem);
+		margin: 0;
+		padding: 0;
+	}
+
+	.player-row__total {
+		width: 4rem;
+		padding-top: 0.5rem;
+		text-align: center;
+	}
+
+	.player-row__token-label {
 		padding-top: 0.5rem;
 		padding-bottom: 0.5rem;
+		text-align: center;
+
+		&--sixth-level {
+			width: calc(27% * 0.3);
+			background: #ccc;
+		}
+
+		&--rare-te {
+			width: calc(27% * 0.3);
+		}
+
+		&--treasure-boosting {
+			width: calc(46% * 0.3);
+			background: #ccc;
+		}
+
+		&--avarice {
+			width: calc(17% * 0.48);
+		}
+
+		&--good-fortune {
+			width: calc(23% * 0.48);
+			background: #ccc;
+		}
+
+		&--ring {
+			width: calc(17% * 0.48);
+		}
+
+		&--horn {
+			width: calc(16% * 0.48);
+			background: #ccc;
+		}
+
+		&--amulet {
+			width: calc(27% * 0.48);
+		}
+
+		&--silver {
+			width: calc(32% * 0.22);
+			background: #ccc;
+		}
+
+		&--gold {
+			width: calc(32% * 0.22);
+		}
+
+		&--platinum {
+			width: calc(36% * 0.22);
+			background: #ccc;
+		}
 	}
 }

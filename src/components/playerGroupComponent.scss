@@ -1,5 +1,22 @@
 .player-group {
-	margin-bottom: 1rem;
+	align-items: center;
+	margin: 0 -1px 1rem;
 	border: 1px solid;
-	padding: 0 1rem;
+
+	.player-group__count-col {
+		width: 4rem;
+
+		select {
+			width: 100%;
+		}
+	}
+
+	.player-group__player-col {
+		width: calc(100% - 8rem);
+	}
+
+	.player-group__group-total-col {
+		width: 4rem;
+		text-align: center;
+	}
 }

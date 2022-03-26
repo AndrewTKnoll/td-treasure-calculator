@@ -1,0 +1,101 @@
+.treasure-calculator {
+
+	.treasure-calculator__title-row {
+		align-items: flex-end;
+		margin: 0 0 1rem;
+		text-align: center;
+	}
+
+	.treasure-calculator__count-title {
+		width: 4rem;
+		font-weight: 700;
+	}
+
+	.treasure-calculator__token-titles {
+		width: calc(100% + ($grid-gutter-width - 12rem));
+	}
+
+	.treasure-calculator__title-box {
+		display: flex;
+		flex-direction: column;
+		border: 1px solid;
+		padding-top: 0.5rem;
+
+		&--misc {
+			width: 30%;
+		}
+
+		&--avarice {
+			width: 48%;
+			border-left-width: 0;
+			border-right-width: 0;
+		}
+
+		&--nuggets {
+			width: 22%;
+		}
+	}
+
+	.treasure-calculator__title-group-row {
+		flex-grow: 1;
+	}
+
+	.treasure-calculator__title-box-label {
+		margin-bottom: 0.5rem;
+		font-weight: 700;
+	}
+
+	.treasure-calculator__title {
+		padding-bottom: 0.5rem;
+
+		&--sixth-level {
+			width: 27%;
+			background: #ccc;
+		}
+
+		&--rare-te {
+			width: 27%;
+		}
+
+		&--treasure-boosting {
+			width: 46%;
+			background: #ccc;
+		}
+
+		&--avarice {
+			width: 17%;
+		}
+
+		&--good-fortune {
+			width: 23%;
+			background: #ccc;
+		}
+
+		&--ring {
+			width: 17%;
+		}
+
+		&--horn {
+			width: 16%;
+			background: #ccc;
+		}
+
+		&--amulet {
+			width: 27%;
+		}
+
+		&--silver {
+			width: 32%;
+			background: #ccc;
+		}
+
+		&--gold {
+			width: 32%;
+		}
+
+		&--platinum {
+			width: 36%;
+			background: #ccc;
+		}
+	}
+}

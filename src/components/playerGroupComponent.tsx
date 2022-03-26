@@ -24,32 +24,29 @@ export class PlayerGroupComponent extends Component<PlayerGroupComponentProps, P
 	}
 
 	override render() {
-		return <div className="player-group">
-			<div className="row">
-				<div className="col">
-					Player Count
-					<select value={this.props.group.playerCount}
-						onChange={this.playerCountUpdated.bind(this)}>
+		return <div className="player-group row">
+			<div className="player-group__count-col col">
+				<select value={this.props.group.playerCount}
+					onChange={this.playerCountUpdated.bind(this)}>
 
-						{Array(10 - this.props.group.firstPlayer).fill(0).map((value, index) => {
-							return <option key={index}
-								value={index + 1}>
+					{Array(10 - this.props.group.firstPlayer).fill(0).map((value, index) => {
+						return <option key={index}
+							value={index + 1}>
 
-								{index + 1}
-							</option>;
-						})}
-					</select>
-				</div>
-				<div className="col">
-					{this.props.group.players.map((player, index) => {
-						return <PlayerRowComponent key={index}
-							player={player}
-							onChange={this.props.onChange}/>;
+							{index + 1}
+						</option>;
 					})}
-				</div>
-				<div className="col">
-					{`Group Total: ${this.props.group.totalTreasure}`}
-				</div>
+				</select>
+			</div>
+			<div className="player-group__player-col col">
+				{this.props.group.players.map((player, index) => {
+					return <PlayerRowComponent key={index}
+						player={player}
+						onChange={this.props.onChange}/>;
+				})}
+			</div>
+			<div className="player-group__group-total-col col">
+				{this.props.group.totalTreasure}
 			</div>
 		</div>;
 	}

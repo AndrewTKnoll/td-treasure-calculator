@@ -19,74 +19,65 @@ export class PlayerRowComponent extends Component<PlayerRowComponentProps, Playe
 
 	override render() {
 		return <div className="player-row row">
-			<label className="col">
-				<input type="checkbox"
-					checked={this.props.player.sixthLevel}
-					onChange={this.setToken.bind(this, "sixthLevel")}/>
-				6th
-			</label>
-			<label className="col">
-				<input type="checkbox"
-					checked={this.props.player.rareEnhancer}
-					onChange={this.setToken.bind(this, "rareEnhancer")}/>
-				Rare
-			</label>
-			<label className="col">
-				<input type="checkbox"
-					checked={this.props.player.charmOfTreasureBoosting}
-					onChange={this.setToken.bind(this, "charmOfTreasureBoosting")}/>
-				Boosting
-			</label>
-			<label className="col">
-				<input type="checkbox"
-					checked={this.props.player.charmOfAvarice}
-					onChange={this.setToken.bind(this, "charmOfAvarice")}/>
-				Avarice
-			</label>
-			<label className="col">
-				<input type="checkbox"
-					checked={this.props.player.charmOfGoodFortune}
-					onChange={this.setToken.bind(this, "charmOfGoodFortune")}/>
-				CoGF
-			</label>
-			<label className="col">
-				<input type="checkbox"
-					checked={this.props.player.ringOfRiches}
-					onChange={this.setToken.bind(this, "ringOfRiches")}/>
-				RoR
-			</label>
-			<label className="col">
-				<input type="checkbox"
-					checked={this.props.player.hornOfPlenty}
-					onChange={this.setToken.bind(this, "hornOfPlenty")}/>
-				HoP
-			</label>
-			<label className="col">
-				<input type="checkbox"
-					checked={this.props.player.amuletOfTreasureFinding}
-					onChange={this.setToken.bind(this, "amuletOfTreasureFinding")}/>
-				AoTF
-			</label>
-			<label className="col">
-				<input type="checkbox"
-					checked={this.props.player.silverNugget}
-					onChange={this.setToken.bind(this, "silverNugget")}/>
-				Silver Nugget
-			</label>
-			<label className="col">
-				<input type="checkbox"
-					checked={this.props.player.goldNugget}
-					onChange={this.setToken.bind(this, "goldNugget")}/>
-				Gold Nugget
-			</label>
-			<label className="col">
-				<input type="checkbox"
-					checked={this.props.player.platinumNugget}
-					onChange={this.setToken.bind(this, "platinumNugget")}/>
-				Platinum Nugget
-			</label>
+			<div className="player-row__token-wrapper col row">
+				<label className="player-row__token-label player-row__token-label--sixth-level col">
+					<input type="checkbox"
+						checked={this.props.player.sixthLevel}
+						onChange={this.setToken.bind(this, "sixthLevel")}/>
+				</label>
+				<label className="player-row__token-label player-row__token-label--rare-te col">
+					<input type="checkbox"
+						checked={this.props.player.rareEnhancer}
+						onChange={this.setToken.bind(this, "rareEnhancer")}/>
+				</label>
+				<label className="player-row__token-label player-row__token-label--treasure-boosting col">
+					<input type="checkbox"
+						checked={this.props.player.charmOfTreasureBoosting}
+						onChange={this.setToken.bind(this, "charmOfTreasureBoosting")}/>
+				</label>
+				<label className="player-row__token-label player-row__token-label--avarice col">
+					<input type="checkbox"
+						checked={this.props.player.charmOfAvarice}
+						onChange={this.setToken.bind(this, "charmOfAvarice")}/>
+				</label>
+				<label className="player-row__token-label player-row__token-label--good-fortune col">
+					<input type="checkbox"
+						checked={this.props.player.charmOfGoodFortune}
+						onChange={this.setToken.bind(this, "charmOfGoodFortune")}/>
+				</label>
+				<label className="player-row__token-label player-row__token-label--ring col">
+					<input type="checkbox"
+						checked={this.props.player.ringOfRiches}
+						onChange={this.setToken.bind(this, "ringOfRiches")}/>
+				</label>
+				<label className="player-row__token-label player-row__token-label--horn col">
+					<input type="checkbox"
+						checked={this.props.player.hornOfPlenty}
+						onChange={this.setToken.bind(this, "hornOfPlenty")}/>
+				</label>
+				<label className="player-row__token-label player-row__token-label--amulet col">
+					<input type="checkbox"
+						checked={this.props.player.amuletOfTreasureFinding}
+						onChange={this.setToken.bind(this, "amuletOfTreasureFinding")}/>
+				</label>
+				<label className="player-row__token-label player-row__token-label--silver col">
+					<input type="checkbox"
+						checked={this.props.player.silverNugget}
+						onChange={this.setToken.bind(this, "silverNugget")}/>
+				</label>
+				<label className="player-row__token-label player-row__token-label--gold col">
+					<input type="checkbox"
+						checked={this.props.player.goldNugget}
+						onChange={this.setToken.bind(this, "goldNugget")}/>
+				</label>
+				<label className="player-row__token-label player-row__token-label--platinum col">
+					<input type="checkbox"
+						checked={this.props.player.platinumNugget}
+						onChange={this.setToken.bind(this, "platinumNugget")}/>
+				</label>
+			</div>
 			<div className="player-row__total col">
-				{`Total: ${this.props.player.totalTreasure}`}
+				{this.props.player.totalTreasure}
 			</div>
 		</div>;
 	}
