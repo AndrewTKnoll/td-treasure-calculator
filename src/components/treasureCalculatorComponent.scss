@@ -49,55 +49,7 @@
 	.treasure-calculator__fill-button-col {
 		padding-bottom: 0.5rem;
 
-		&--sixth-level {
-			width: 27%;
-			background: #ccc;
-		}
-
-		&--rare-te {
-			width: 27%;
-		}
-
-		&--treasure-boosting {
-			width: 46%;
-			background: #ccc;
-		}
-
-		&--avarice {
-			width: 17%;
-		}
-
-		&--good-fortune {
-			width: 23%;
-			background: #ccc;
-		}
-
-		&--ring {
-			width: 17%;
-		}
-
-		&--horn {
-			width: 16%;
-			background: #ccc;
-		}
-
-		&--amulet {
-			width: 27%;
-		}
-
-		&--silver {
-			width: 32%;
-			background: #ccc;
-		}
-
-		&--gold {
-			width: 32%;
-		}
-
-		&--platinum {
-			width: 36%;
-			background: #ccc;
-		}
+		@include treasure-cols(true);
 
 		button {
 			margin-bottom: 0;

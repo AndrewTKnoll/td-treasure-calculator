@@ -1,0 +1,61 @@
+@mixin treasure-cols($separated) {
+	$miscGroupWidth: 0.3;
+	$coaGroupWidth: 0.48;
+	$nuggetGroupWidth: 0.22;
+
+	@if ($separated) {
+		$miscGroupWidth: 1;
+		$coaGroupWidth: 1;
+		$nuggetGroupWidth: 1;
+	}
+
+	&--sixth-level {
+		width: calc(27% * $miscGroupWidth);
+		background: #ccc;
+	}
+
+	&--rare-te {
+		width: calc(27% * $miscGroupWidth);
+	}
+
+	&--treasure-boosting {
+		width: calc(46% * $miscGroupWidth);
+		background: #ccc;
+	}
+
+	&--avarice {
+		width: calc(17% * $coaGroupWidth);
+	}
+
+	&--good-fortune {
+		width: calc(23% * $coaGroupWidth);
+		background: #ccc;
+	}
+
+	&--ring {
+		width: calc(17% * $coaGroupWidth);
+	}
+
+	&--horn {
+		width: calc(16% * $coaGroupWidth);
+		background: #ccc;
+	}
+
+	&--amulet {
+		width: calc(27% * $coaGroupWidth);
+	}
+
+	&--silver {
+		width: calc(32% * $nuggetGroupWidth);
+		background: #ccc;
+	}
+
+	&--gold {
+		width: calc(32% * $nuggetGroupWidth);
+	}
+
+	&--platinum {
+		width: calc(36% * $nuggetGroupWidth);
+		background: #ccc;
+	}
+}

@@ -27,53 +27,7 @@
 	margin-left: 4rem;
 	margin-right: 8rem;
 
-	&__sixth-level {
-		width: calc(27% * 0.3);
-		background: #ccc;
-	}
-
-	&__rare-te {
-		width: calc(27% * 0.3);
-	}
-
-	&__treasure-boosting {
-		width: calc(46% * 0.3);
-		background: #ccc;
-	}
-
-	&__avarice {
-		width: calc(17% * 0.48);
-	}
-
-	&__good-fortune {
-		width: calc(23% * 0.48);
-		background: #ccc;
-	}
-
-	&__ring {
-		width: calc(17% * 0.48);
-	}
-
-	&__horn {
-		width: calc(16% * 0.48);
-		background: #ccc;
-	}
-
-	&__amulet {
-		width: calc(27% * 0.48);
-	}
-
-	&__silver {
-		width: calc(32% * 0.22);
-		background: #ccc;
-	}
-
-	&__gold {
-		width: calc(32% * 0.22);
-	}
-
-	&__platinum {
-		width: calc(36% * 0.22);
-		background: #ccc;
+	.player-group-spacer__col {
+		@include treasure-cols(false);
 	}
 }

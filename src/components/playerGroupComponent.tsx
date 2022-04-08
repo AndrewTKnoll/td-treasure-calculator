@@ -26,17 +26,17 @@ export class PlayerGroupComponent extends Component<PlayerGroupComponentProps, P
 	override render() {
 		return <>
 			<div className="player-group-spacer row">
-				<div className="player-group-spacer__sixth-level col"></div>
-				<div className="player-group-spacer__rare-te col"></div>
-				<div className="player-group-spacer__treasure-boosting col"></div>
-				<div className="player-group-spacer__avarice col"></div>
-				<div className="player-group-spacer__good-fortune col"></div>
-				<div className="player-group-spacer__ring col"></div>
-				<div className="player-group-spacer__horn col"></div>
-				<div className="player-group-spacer__amulet col"></div>
-				<div className="player-group-spacer__silver col"></div>
-				<div className="player-group-spacer__gold col"></div>
-				<div className="player-group-spacer__platinum col"></div>
+				<div className="player-group-spacer__col player-group-spacer__col--sixth-level col"></div>
+				<div className="player-group-spacer__col player-group-spacer__col--rare-te col"></div>
+				<div className="player-group-spacer__col player-group-spacer__col--treasure-boosting col"></div>
+				<div className="player-group-spacer__col player-group-spacer__col--avarice col"></div>
+				<div className="player-group-spacer__col player-group-spacer__col--good-fortune col"></div>
+				<div className="player-group-spacer__col player-group-spacer__col--ring col"></div>
+				<div className="player-group-spacer__col player-group-spacer__col--horn col"></div>
+				<div className="player-group-spacer__col player-group-spacer__col--amulet col"></div>
+				<div className="player-group-spacer__col player-group-spacer__col--silver col"></div>
+				<div className="player-group-spacer__col player-group-spacer__col--gold col"></div>
+				<div className="player-group-spacer__col player-group-spacer__col--platinum col"></div>
 			</div>
 			<div className="player-group row">
 				<div className="player-group__count-col col">
