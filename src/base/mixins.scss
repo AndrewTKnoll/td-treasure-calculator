@@ -1,3 +1,9 @@
+@mixin dark-mode() {
+	@media (prefers-color-scheme: dark) {
+		@content;
+	}
+}
+
 @mixin treasure-cols($separated) {
 	$miscGroupWidth: 0.3;
 	$coaGroupWidth: 0.48;
@@ -11,7 +17,7 @@
 
 	&--sixth-level {
 		width: calc(27% * $miscGroupWidth);
-		background: #ccc;
+		background: var(--accent-color);
 	}
 
 	&--rare-te {
@@ -20,7 +26,7 @@
 
 	&--treasure-boosting {
 		width: calc(46% * $miscGroupWidth);
-		background: #ccc;
+		background: var(--accent-color);
 	}
 
 	&--avarice {
@@ -29,7 +35,7 @@
 
 	&--good-fortune {
 		width: calc(23% * $coaGroupWidth);
-		background: #ccc;
+		background: var(--accent-color);
 	}
 
 	&--ring {
@@ -38,7 +44,7 @@
 
 	&--horn {
 		width: calc(16% * $coaGroupWidth);
-		background: #ccc;
+		background: var(--accent-color);
 	}
 
 	&--amulet {
@@ -47,7 +53,7 @@
 
 	&--silver {
 		width: calc(32% * $nuggetGroupWidth);
-		background: #ccc;
+		background: var(--accent-color);
 	}
 
 	&--gold {
@@ -56,6 +62,6 @@
 
 	&--platinum {
 		width: calc(36% * $nuggetGroupWidth);
-		background: #ccc;
+		background: var(--accent-color);
 	}
 }
