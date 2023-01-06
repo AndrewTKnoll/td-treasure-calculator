@@ -1,3 +1,5 @@
+@use "sass:map";
+
 .treasure-calculator {
 
 	.treasure-calculator__title-row {
@@ -26,16 +28,10 @@
 			border-left-width: 1px;
 		}
 
-		&--misc {
-			width: 30%;
-		}
-
-		&--avarice {
-			width: 48%;
-		}
-
-		&--nuggets {
-			width: 22%;
+		@each $groupName, $groupData in $tokenGroups {
+			&--#{$groupName} {
+				width: map.get($groupData, "width");
+			}
 		}
 	}
 

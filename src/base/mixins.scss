@@ -1,3 +1,5 @@
+@use "sass:map";
+
 @mixin dark-mode() {
 	@media (prefers-color-scheme: dark) {
 		@content;
@@ -5,63 +7,20 @@
 }
 
 @mixin treasure-cols($separated) {
-	$miscGroupWidth: 0.3;
-	$coaGroupWidth: 0.48;
-	$nuggetGroupWidth: 0.22;
+	$accented: true;
 
-	@if ($separated) {
-		$miscGroupWidth: 1;
-		$coaGroupWidth: 1;
-		$nuggetGroupWidth: 1;
-	}
+	@each $groupName, $groupData in $tokenGroups {
+		$groupWidth: if($separated, 100%, map.get($groupData, "width"));
 
-	&--sixth-level {
-		width: calc(27% * $miscGroupWidth);
-		background: var(--accent-color);
-	}
+		@each $tokenName, $tokenWidth in map.get($groupData, "tokens") {
 
-	&--rare-te {
-		width: calc(27% * $miscGroupWidth);
-	}
-
-	&--treasure-boosting {
-		width: calc(46% * $miscGroupWidth);
-		background: var(--accent-color);
-	}
-
-	&--avarice {
-		width: calc(17% * $coaGroupWidth);
-	}
-
-	&--good-fortune {
-		width: calc(23% * $coaGroupWidth);
-		background: var(--accent-color);
-	}
-
-	&--ring {
-		width: calc(17% * $coaGroupWidth);
-	}
-
-	&--horn {
-		width: calc(16% * $coaGroupWidth);
-		background: var(--accent-color);
-	}
-
-	&--amulet {
-		width: calc(27% * $coaGroupWidth);
-	}
-
-	&--silver {
-		width: calc(32% * $nuggetGroupWidth);
-		background: var(--accent-color);
-	}
-
-	&--gold {
-		width: calc(32% * $nuggetGroupWidth);
-	}
-
-	&--platinum {
-		width: calc(36% * $nuggetGroupWidth);
-		background: var(--accent-color);
+			&--#{$tokenName} {
+				width: calc($groupWidth * $tokenWidth / 100%);
+				@if $accented {
+					background: var(--accent-color);
+				}
+				$accented: not $accented;
+			}
+		}
 	}
 }
