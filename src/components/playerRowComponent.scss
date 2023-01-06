@@ -3,6 +3,8 @@
 	.player-row__token-wrapper {
 		width: calc(100% - 4rem);
 		margin: 0;
+		border-width: 0 1px;
+		border-style: dashed;
 		padding: 0;
 	}
 

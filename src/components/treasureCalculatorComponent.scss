@@ -18,8 +18,13 @@
 	.treasure-calculator__title-box {
 		display: flex;
 		flex-direction: column;
-		border: 1px solid;
+		border-width: 1px 1px 1px 0;
+		border-style: solid;
 		padding-top: 0.5rem;
+
+		&:first-child {
+			border-left-width: 1px;
+		}
 
 		&--misc {
 			width: 30%;
@@ -27,8 +32,6 @@
 
 		&--avarice {
 			width: 48%;
-			border-left-width: 0;
-			border-right-width: 0;
 		}
 
 		&--nuggets {
