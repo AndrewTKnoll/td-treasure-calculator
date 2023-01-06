@@ -49,7 +49,7 @@ const baseConfig = {
 		})
 	],
 	devServer: {
-		server: "https",
+		server: "http",
 		webSocketServer: false,
 		static: `${__dirname}/site`,
 		open: true
