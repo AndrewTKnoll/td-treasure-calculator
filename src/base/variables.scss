@@ -1,20 +1,20 @@
 $tokenGroups: (
 	"misc": (
-		"width": 30%,
+		"width": 25%,
 		"tokens": (
-			"sixth-level": 27%,
-			"rare-te": 27%,
-			"treasure-boosting": 46%
+			"sixth-level": 33%,
+			"rare-te": 33%,
+			"treasure-boosting": 34%
 		)
 	),
 	"avarice": (
-		"width": 48%,
+		"width": 45%,
 		"tokens": (
-			"avarice": 17%,
-			"good-fortune": 23%,
-			"ring": 17%,
-			"horn": 16%,
-			"amulet": 27%
+			"avarice": 20%,
+			"good-fortune": 20%,
+			"ring": 19%,
+			"horn": 19%,
+			"amulet": 22%
 		)
 	),
 	"nuggets": (
@@ -23,6 +23,12 @@ $tokenGroups: (
 			"silver": 32%,
 			"gold": 32%,
 			"platinum": 36%
+		)
+	),
+	"beads": (
+		"width": 8%,
+		"tokens": (
+			"bounty": 100%
 		)
 	)
 );

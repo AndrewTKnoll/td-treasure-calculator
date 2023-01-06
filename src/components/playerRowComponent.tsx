@@ -73,6 +73,11 @@ export class PlayerRowComponent extends Component<PlayerRowComponentProps, Playe
 						checked={this.props.player.platinumNugget}
 						onChange={this.setToken.bind(this, "platinumNugget")}/>
 				</label>
+				<label className="player-row__token-label player-row__token-label--bounty col">
+					<input type="checkbox"
+						checked={this.props.player.beadOfBounty}
+						onChange={this.setToken.bind(this, "beadOfBounty")}/>
+				</label>
 			</div>
 			<div className="player-row__total col">
 				{this.props.player.totalTreasure}

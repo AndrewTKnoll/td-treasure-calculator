@@ -37,6 +37,7 @@ export class PlayerGroupComponent extends Component<PlayerGroupComponentProps, P
 				<div className="player-group-spacer__col player-group-spacer__col--silver col"></div>
 				<div className="player-group-spacer__col player-group-spacer__col--gold col"></div>
 				<div className="player-group-spacer__col player-group-spacer__col--platinum col"></div>
+				<div className="player-group-spacer__col player-group-spacer__col--bounty col"></div>
 			</div>
 			<div className="player-group row">
 				<div className="player-group__count-col col">

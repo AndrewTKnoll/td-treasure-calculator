@@ -88,6 +88,9 @@ export class TreasureCalculatorComponent extends Component<TreasureCalculatorCom
 						{ name: "goldNugget", cssKey: "gold", label: "Gold" },
 						{ name: "platinumNugget", cssKey: "platinum", label: "Platinum" }
 					])}
+					{this.renderTitleBox("Beads", "beads", [
+						{ name: "beadOfBounty", cssKey: "bounty", label: "Bounty" }
+					])}
 				</div>
 				<span className="treasure-calculator__count-title col">
 					Player Total

@@ -1,6 +1,17 @@
 import { GoodFortuneCoordinator } from "model/goodFortuneCoordinator";
 
-export type TokenName = "sixthLevel" | "rareEnhancer" | "charmOfTreasureBoosting" | "charmOfAvarice" | "charmOfGoodFortune" | "ringOfRiches" | "hornOfPlenty" | "amuletOfTreasureFinding" | "silverNugget" | "goldNugget" | "platinumNugget";
+export type TokenName = "sixthLevel" |
+	"rareEnhancer" |
+	"charmOfTreasureBoosting" |
+	"charmOfAvarice" |
+	"charmOfGoodFortune" |
+	"ringOfRiches" |
+	"hornOfPlenty" |
+	"amuletOfTreasureFinding" |
+	"silverNugget" |
+	"goldNugget" |
+	"platinumNugget" |
+	"beadOfBounty";
 
 export class Player {
 	private readonly goodFortuneCoordinator: GoodFortuneCoordinator;
@@ -15,6 +26,8 @@ export class Player {
 	silverNugget = false;
 	goldNugget = false;
 	platinumNugget = false;
+
+	beadOfBounty = false;
 
 	rareEnhancer = false;
 	charmOfTreasureBoosting = false;
@@ -63,6 +76,13 @@ export class Player {
 		}
 
 		if (this.platinumNugget) {
+			treasureTotal += 2;
+			enhancerCount += 1;
+		}
+
+		// beads
+
+		if (this.beadOfBounty) {
 			treasureTotal += 2;
 			enhancerCount += 1;
 		}
