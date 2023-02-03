@@ -2,7 +2,7 @@ import React, { Component, ReactNode } from "react";
 
 import { PlayerGroupComponent } from "components/playerGroupComponent";
 
-import { TokenName } from "model/player";
+import { PlayerTokenKey } from "model/player";
 import { tokenData, TokenGroup } from "model/token";
 import { TreasureCalculator } from "model/treasureCalculator";
 
@@ -13,7 +13,7 @@ interface TreasureCalculatorComponentState {}
 
 export class TreasureCalculatorComponent extends Component<TreasureCalculatorComponentProps, TreasureCalculatorComponentState> {
 
-	private allPlayersHaveToken(name: TokenName): boolean {
+	private allPlayersHaveToken(name: PlayerTokenKey): boolean {
 		const tokenCount = this.props.calculator.players.reduce((count, player) => {
 			if (player[name]) {
 				return count + 1;
@@ -24,7 +24,7 @@ export class TreasureCalculatorComponent extends Component<TreasureCalculatorCom
 		return tokenCount === this.props.calculator.players.length;
 	}
 
-	private setAllButtonClicked(token: TokenName) {
+	private setAllButtonClicked(token: PlayerTokenKey) {
 		const clear = this.allPlayersHaveToken(token);
 
 		this.props.calculator.players.forEach((player) => {
@@ -55,9 +55,9 @@ export class TreasureCalculatorComponent extends Component<TreasureCalculatorCom
 						className={`treasure-calculator__fill-button-col treasure-calculator__fill-button-col--${token.identifier} col`}>
 
 						<button type="button"
-							onClick={this.setAllButtonClicked.bind(this, token.playerKey)}>
+							onClick={this.setAllButtonClicked.bind(this, token.playerTokenKey)}>
 
-							{this.allPlayersHaveToken(token.playerKey) ? "Clear" : "Set All"}
+							{this.allPlayersHaveToken(token.playerTokenKey) ? "Clear" : "Set All"}
 						</button>
 					</div>;
 				})}

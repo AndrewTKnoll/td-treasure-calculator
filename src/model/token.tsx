@@ -1,9 +1,9 @@
-import { TokenName } from "model/player";
+import { PlayerTokenKey } from "model/player";
 
 export interface Token {
 	readonly name: string;
 	readonly identifier: string;
-	readonly playerKey: TokenName;
+	readonly playerTokenKey: PlayerTokenKey;
 }
 
 export interface TokenGroup {
@@ -26,15 +26,15 @@ export const tokenData: TokenGroup[] = [{
 	tokens: [{
 		name: "6th Level Player",
 		identifier: "sixth-level",
-		playerKey: "sixthLevel"
+		playerTokenKey: "sixthLevel"
 	},{
 		name: "Rare TE",
 		identifier: "rare-te",
-		playerKey: "rareEnhancer"
+		playerTokenKey: "rareEnhancer"
 	},{
 		name: "Charm of Treasure Boosting",
 		identifier: "treasure-boosting",
-		playerKey: "charmOfTreasureBoosting"
+		playerTokenKey: "charmOfTreasureBoosting"
 	}]
 },{
 	name: "Charm of Avarice Components",
@@ -42,23 +42,23 @@ export const tokenData: TokenGroup[] = [{
 	tokens: [{
 		name: "Charm of Avarice",
 		identifier: "avarice",
-		playerKey: "charmOfAvarice"
+		playerTokenKey: "charmOfAvarice"
 	},{
 		name: "Charm of Good Fortune",
 		identifier: "good-fortune",
-		playerKey: "charmOfGoodFortune"
+		playerTokenKey: "charmOfGoodFortune"
 	},{
 		name: "Ring of Riches",
 		identifier: "ring",
-		playerKey: "ringOfRiches"
+		playerTokenKey: "ringOfRiches"
 	},{
 		name: "Horn of Plenty",
 		identifier: "horn",
-		playerKey: "hornOfPlenty"
+		playerTokenKey: "hornOfPlenty"
 	},{
 		name: "Amulet of Treasure Finding",
 		identifier: "amulet",
-		playerKey: "amuletOfTreasureFinding"
+		playerTokenKey: "amuletOfTreasureFinding"
 	}]
 },{
 	name: "Ioun Stone Nuggets",
@@ -66,15 +66,15 @@ export const tokenData: TokenGroup[] = [{
 	tokens: [{
 		name: "Silver",
 		identifier: "silver",
-		playerKey: "silverNugget"
+		playerTokenKey: "silverNugget"
 	},{
 		name: "Gold",
 		identifier: "gold",
-		playerKey: "goldNugget"
+		playerTokenKey: "goldNugget"
 	},{
 		name: "Platinum",
 		identifier: "platinum",
-		playerKey: "platinumNugget"
+		playerTokenKey: "platinumNugget"
 	}]
 },{
 	name: "Beads",
@@ -82,6 +82,6 @@ export const tokenData: TokenGroup[] = [{
 	tokens: [{
 		name: "Bounty",
 		identifier: "bounty",
-		playerKey: "beadOfBounty"
+		playerTokenKey: "beadOfBounty"
 	}]
 }];
