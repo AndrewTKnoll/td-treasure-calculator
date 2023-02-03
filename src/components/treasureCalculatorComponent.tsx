@@ -45,14 +45,18 @@ export class TreasureCalculatorComponent extends Component<TreasureCalculatorCom
 			</div>
 			<div className="treasure-calculator__title-group-row row">
 				{tokens.map((token) => {
-					return <span className={`treasure-calculator__title treasure-calculator__title--${token.cssKey} col`}>
+					return <span key={token.cssKey}
+						className={`treasure-calculator__title treasure-calculator__title--${token.cssKey} col`}>
+
 						{token.label}
 					</span>;
 				})}
 			</div>
 			<div className="treasure-calculator__fill-row row">
 				{tokens.map((token) => {
-					return <div className={`treasure-calculator__fill-button-col treasure-calculator__fill-button-col--${token.cssKey} col`}>
+					return <div key={token.cssKey}
+						className={`treasure-calculator__fill-button-col treasure-calculator__fill-button-col--${token.cssKey} col`}>
+
 						<button type="button"
 							onClick={this.setAllButtonClicked.bind(this, token.name)}>
 
