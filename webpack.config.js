@@ -1,11 +1,14 @@
 "use strict";
 
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const TSConfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 
+const glob = require("glob");
 const webpack = require("webpack");
-const path = require("path");
+
+const pagesSourceDirectory = `${__dirname}/src/pages/`;
 
 const baseConfig = {
 	entry: {
@@ -13,8 +16,8 @@ const baseConfig = {
 	},
 	output: {
 		filename: "[name].js",
-		path: `${__dirname}/site/assets`,
-		publicPath: "/assets/",
+		path: `${__dirname}/site`,
+		publicPath: "/",
 		clean: true
 	},
 	resolve: {
@@ -44,6 +47,14 @@ const baseConfig = {
 	},
 	plugins: [
 		new webpack.NoEmitOnErrorsPlugin(),
+		...glob.sync(`${pagesSourceDirectory}**/*.tsx`).map((file) => {
+			return new HtmlWebpackPlugin({
+				filename: `${file.slice(pagesSourceDirectory.length, -4)}.html`,
+				hash: true,
+				cache: false,
+				template: file
+			});
+		}),
 		new MiniCssExtractPlugin({
 			filename: "[name].css"
 		})
