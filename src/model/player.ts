@@ -1,17 +1,8 @@
 import { GoodFortuneCoordinator } from "model/goodFortuneCoordinator";
 
-export type TokenName = "sixthLevel" |
-	"rareEnhancer" |
-	"charmOfTreasureBoosting" |
-	"charmOfAvarice" |
-	"charmOfGoodFortune" |
-	"ringOfRiches" |
-	"hornOfPlenty" |
-	"amuletOfTreasureFinding" |
-	"silverNugget" |
-	"goldNugget" |
-	"platinumNugget" |
-	"beadOfBounty";
+import { KeyOfType } from "utilities/typeUtils";
+
+export type PlayerTokenKey = KeyOfType<Player, boolean>;
 
 export class Player {
 	private readonly goodFortuneCoordinator: GoodFortuneCoordinator;
