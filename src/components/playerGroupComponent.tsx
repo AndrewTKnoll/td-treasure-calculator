@@ -3,6 +3,7 @@ import React, { Component, ChangeEvent } from "react";
 import { PlayerRowComponent } from "components/playerRowComponent";
 
 import { PlayerGroup } from "model/playerGroup";
+import { mapAllTokens } from "model/token";
 import { TreasureCalculator } from "model/treasureCalculator";
 
 interface PlayerGroupComponentProps {
@@ -26,18 +27,11 @@ export class PlayerGroupComponent extends Component<PlayerGroupComponentProps, P
 	override render() {
 		return <>
 			<div className="player-group-spacer row">
-				<div className="player-group-spacer__col player-group-spacer__col--sixth-level col"></div>
-				<div className="player-group-spacer__col player-group-spacer__col--rare-te col"></div>
-				<div className="player-group-spacer__col player-group-spacer__col--treasure-boosting col"></div>
-				<div className="player-group-spacer__col player-group-spacer__col--avarice col"></div>
-				<div className="player-group-spacer__col player-group-spacer__col--good-fortune col"></div>
-				<div className="player-group-spacer__col player-group-spacer__col--ring col"></div>
-				<div className="player-group-spacer__col player-group-spacer__col--horn col"></div>
-				<div className="player-group-spacer__col player-group-spacer__col--amulet col"></div>
-				<div className="player-group-spacer__col player-group-spacer__col--silver col"></div>
-				<div className="player-group-spacer__col player-group-spacer__col--gold col"></div>
-				<div className="player-group-spacer__col player-group-spacer__col--platinum col"></div>
-				<div className="player-group-spacer__col player-group-spacer__col--bounty col"></div>
+				{mapAllTokens((token) => {
+					return <div key={token.identifier}
+						className={`player-group-spacer__col player-group-spacer__col--${token.identifier} col`}>
+					</div>;
+				})}
 			</div>
 			<div className="player-group row">
 				<div className="player-group__count-col col">

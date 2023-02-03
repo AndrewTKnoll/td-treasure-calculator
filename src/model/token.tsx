@@ -12,6 +12,14 @@ export interface TokenGroup {
 	readonly tokens: Token[];
 }
 
+export function mapAllTokens<ResultType>(callback: (token: Token) => ResultType): ResultType[] {
+	return tokenData.map((group) => {
+		return group.tokens;
+	})
+	.flat(1)
+	.map(callback);
+}
+
 export const tokenData: TokenGroup[] = [{
 	name: "Miscellaneous",
 	identifier: "misc",
