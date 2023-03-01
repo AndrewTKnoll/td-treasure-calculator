@@ -6,17 +6,19 @@ const TerserPlugin = require("terser-webpack-plugin");
 const TSConfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 
 const glob = require("glob");
+const path = require("path");
 const webpack = require("webpack");
 
-const pagesSourceDirectory = `${__dirname}/src/pages/`;
+const siteOutputDirectory = path.resolve(__dirname, "site");
+const pagesSourceDirectory = path.resolve(__dirname, "src", "pages");
 
 const baseConfig = {
 	entry: {
-		main: `${__dirname}/src/main.tsx`
+		main: path.resolve(__dirname, "src", "main.tsx")
 	},
 	output: {
 		filename: "[name].js",
-		path: `${__dirname}/site`,
+		path: siteOutputDirectory,
 		publicPath: "/",
 		clean: true
 	},
@@ -24,7 +26,7 @@ const baseConfig = {
 		extensions: [".js", ".ts", ".jsx", ".tsx"],
 		plugins: [
 			new TSConfigPathsPlugin({
-				configFile: `${__dirname}/tsconfig.json`
+				configFile: path.resolve(__dirname, "tsconfig.json")
 			})
 		]
 	},
@@ -47,9 +49,9 @@ const baseConfig = {
 	},
 	plugins: [
 		new webpack.NoEmitOnErrorsPlugin(),
-		...glob.sync(`${pagesSourceDirectory}**/*.tsx`).map((file) => {
+		...glob.sync(`${pagesSourceDirectory}/**/*.tsx`).map((file) => {
 			return new HtmlWebpackPlugin({
-				filename: `${file.slice(pagesSourceDirectory.length, -4)}.html`,
+				filename: `${file.slice(pagesSourceDirectory.length + 1, -4)}.html`,
 				hash: true,
 				cache: false,
 				template: file
@@ -62,7 +64,7 @@ const baseConfig = {
 	devServer: {
 		server: "http",
 		webSocketServer: false,
-		static: `${__dirname}/site`,
+		static: siteOutputDirectory,
 		open: true
 	},
 	optimization: {
@@ -74,7 +76,7 @@ const baseConfig = {
 	},
 	stats: {
 		builtAt: true,
-		context: `${__dirname}/src`,
+		context: path.resolve(__dirname, "src"),
 		entrypoints: false,
 		errorDetails: false,
 		modules: false
