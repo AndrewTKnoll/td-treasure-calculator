@@ -76,6 +76,10 @@ const baseConfig = {
 			})
 		]
 	},
+	performance: {
+		maxAssetSize: 5242880,
+		maxEntrypointSize: 5242880
+	},
 	stats: {
 		builtAt: true,
 		context: path.resolve(__dirname, "src"),
