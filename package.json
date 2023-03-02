@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack --config webpack.config.js --env dev",
     "dist": "webpack --config webpack.config.js --env dist",
-    "deploy": "npm run dist && gh-pages -d site -o github -f",
+    "deploy": "npm run dist && gh-pages -d site/td-treasure-calculator -o github -f",
     "start": "webpack serve --config webpack.config.js --env dev"
   },
   "devDependencies": {

@@ -9,6 +9,8 @@ const glob = require("glob");
 const path = require("path");
 const webpack = require("webpack");
 
+const npmPackage = require(path.resolve(__dirname, "package.json"));
+
 const siteOutputDirectory = path.resolve(__dirname, "site");
 const pagesSourceDirectory = path.resolve(__dirname, "src", "pages");
 
@@ -18,8 +20,8 @@ const baseConfig = {
 	},
 	output: {
 		filename: "[name].js",
-		path: siteOutputDirectory,
-		publicPath: "/",
+		path: path.resolve(siteOutputDirectory, npmPackage.name),
+		publicPath: `/${npmPackage.name}/`,
 		clean: true
 	},
 	resolve: {
@@ -65,7 +67,7 @@ const baseConfig = {
 		server: "http",
 		webSocketServer: false,
 		static: siteOutputDirectory,
-		open: true
+		open: [npmPackage.name]
 	},
 	optimization: {
 		minimizer: [
