@@ -32,6 +32,10 @@ export const tokenData: TokenGroup[] = [{
 		identifier: "rare-te",
 		playerTokenKey: "rareEnhancer"
 	},{
+		name: "Charm of Divine Gifts",
+		identifier: "divine-gifts",
+		playerTokenKey: "charmOfDivineGifts"
+	},{
 		name: "Charm of Treasure Boosting",
 		identifier: "treasure-boosting",
 		playerTokenKey: "charmOfTreasureBoosting"
@@ -83,5 +87,9 @@ export const tokenData: TokenGroup[] = [{
 		name: "Bounty",
 		identifier: "bounty",
 		playerTokenKey: "beadOfBounty"
+	},{
+		name: "Greed",
+		identifier: "greed",
+		playerTokenKey: "beadOfGreed"
 	}]
 }];

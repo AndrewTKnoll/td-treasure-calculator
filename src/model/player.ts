@@ -19,8 +19,10 @@ export class Player {
 	platinumNugget = false;
 
 	beadOfBounty = false;
+	beadOfGreed = false;
 
 	rareEnhancer = false;
+	charmOfDivineGifts = false;
 	charmOfTreasureBoosting = false;
 	sixthLevel = false;
 
@@ -78,10 +80,20 @@ export class Player {
 			enhancerCount += 1;
 		}
 
+		if (this.beadOfGreed) {
+			treasureTotal += 2;
+			enhancerCount += 1;
+		}
+
 		// misc
 
-		if (this.rareEnhancer && enhancerCount === 0) {
+		if (this.rareEnhancer && enhancerCount === 0 && !this.charmOfDivineGifts) {
 			treasureTotal += 1;
+			enhancerCount += 1;
+		}
+
+		if (this.charmOfDivineGifts && enhancerCount === 0) {
+			treasureTotal += 2;
 			enhancerCount += 1;
 		}
 

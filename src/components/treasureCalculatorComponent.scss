@@ -1,6 +1,8 @@
 @use "sass:map";
 
 .treasure-calculator {
+	margin-left: -4rem;
+	margin-right: -8rem;
 
 	.treasure-calculator__title-row {
 		align-items: flex-end;
