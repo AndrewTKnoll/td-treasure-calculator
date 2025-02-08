@@ -16,7 +16,10 @@ const pagesSourceDirectory = path.resolve(__dirname, "src", "pages");
 
 const baseConfig = {
 	entry: {
-		main: path.resolve(__dirname, "src", "main.tsx")
+		main: [
+			path.resolve(__dirname, "src", "main.tsx"),
+			path.resolve(__dirname, "src", "main.scss")
+		]
 	},
 	output: {
 		filename: "[name].js",
@@ -44,7 +47,14 @@ const baseConfig = {
 			use: [
 				MiniCssExtractPlugin.loader,
 				"css-loader",
-				"sass-loader",
+				{
+					loader: "sass-loader",
+					options: {
+						sassOptions: {
+							silenceDeprecation: "import"
+						}
+					}
+				},
 				"glob-import-loader"
 			]
 		}]
@@ -66,8 +76,7 @@ const baseConfig = {
 	devServer: {
 		server: "http",
 		webSocketServer: false,
-		static: siteOutputDirectory,
-		open: [npmPackage.name]
+		static: siteOutputDirectory
 	},
 	optimization: {
 		minimizer: [
@@ -97,6 +106,10 @@ module.exports = (env) => {
 
 	if (env.dist) {
 		baseConfig.mode = "production";
+	}
+
+	if (env.open) {
+		baseConfig.devServer.open = [npmPackage.name];
 	}
 
 	return baseConfig;
