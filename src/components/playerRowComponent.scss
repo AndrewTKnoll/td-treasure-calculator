@@ -3,9 +3,6 @@
 	.player-row__token-wrapper {
 		width: calc(100% - 4rem);
 		margin: 0;
-		border-width: 0 1px;
-		border-style: dashed;
-		padding: 0;
 	}
 
 	.player-row__total {
@@ -15,10 +12,11 @@
 	}
 
 	.player-row__token-label {
+		display: block;
+		margin-left: -0.5rem;
+		margin-right: -0.5rem;
 		padding-top: 0.5rem;
 		padding-bottom: 0.5rem;
 		text-align: center;
-
-		@include treasure-cols(false);
 	}
 }

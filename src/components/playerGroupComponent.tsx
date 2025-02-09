@@ -1,9 +1,9 @@
 import React, { Component, ChangeEvent } from "react";
 
 import { PlayerRowComponent } from "components/playerRowComponent";
+import { CalculatorRowComponent } from "components/calculatorRowComponent";
 
 import { PlayerGroup } from "model/playerGroup";
-import { mapAllTokens } from "model/token";
 import { TreasureCalculator } from "model/treasureCalculator";
 
 interface PlayerGroupComponentProps {
@@ -26,13 +26,7 @@ export class PlayerGroupComponent extends Component<PlayerGroupComponentProps, P
 
 	override render() {
 		return <>
-			<div className="player-group-spacer row">
-				{mapAllTokens((token) => {
-					return <div key={token.identifier}
-						className={`player-group-spacer__col player-group-spacer__col--${token.identifier} col`}>
-					</div>;
-				})}
-			</div>
+			<CalculatorRowComponent wrapperClass="player-group-spacer"/>
 			<div className="player-group row">
 				<div className="player-group__count-col col">
 					<select value={this.props.group.playerCount}

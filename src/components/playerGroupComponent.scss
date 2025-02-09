@@ -22,14 +22,7 @@
 }
 
 .player-group-spacer {
-	align-items: stretch;
 	height: 1rem;
 	margin-left: 4rem;
 	margin-right: 8rem;
-	border-width: 0 1px;
-	border-style: dashed;
-
-	.player-group-spacer__col {
-		@include treasure-cols(false);
-	}
 }

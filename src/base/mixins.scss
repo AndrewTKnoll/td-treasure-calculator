@@ -6,16 +6,28 @@
 	}
 }
 
-@mixin treasure-cols($separated) {
+@mixin treasure-groups() {
+	display: flex;
+	border-width: 0px 1px 0px 0;
+
+	&:first-child {
+		border-left-width: 1px;
+	}
+
+	@each $groupName, $groupData in $tokenGroups {
+		&--#{$groupName} {
+			width: map.get($groupData, "width");
+		}
+	}
+}
+
+@mixin treasure-cols() {
 	$accented: true;
 
 	@each $groupName, $groupData in $tokenGroups {
-		$groupWidth: if($separated, 100%, map.get($groupData, "width"));
-
 		@each $tokenName, $tokenWidth in map.get($groupData, "tokens") {
-
 			&--#{$tokenName} {
-				width: calc($groupWidth * $tokenWidth / 100%);
+				width: $tokenWidth;
 				@if $accented {
 					background: var(--accent-color);
 				}

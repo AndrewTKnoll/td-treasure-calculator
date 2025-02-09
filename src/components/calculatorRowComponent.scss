@@ -1,0 +1,11 @@
+.calculator-row-component {
+
+	.calculator-row-component__token-group {
+		@include treasure-groups();
+		border-style: dashed;
+	}
+
+	.calculator-row-component__token {
+		@include treasure-cols();
+	}
+}

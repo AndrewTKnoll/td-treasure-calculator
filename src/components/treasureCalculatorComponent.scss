@@ -1,5 +1,3 @@
-@use "sass:map";
-
 .treasure-calculator {
 
 	.treasure-calculator__title-row {
@@ -18,21 +16,11 @@
 	}
 
 	.treasure-calculator__title-box {
-		display: flex;
+		@include treasure-groups();
 		flex-direction: column;
 		border-width: 1px 1px 1px 0;
 		border-style: solid;
 		padding-top: 0.5rem;
-
-		&:first-child {
-			border-left-width: 1px;
-		}
-
-		@each $groupName, $groupData in $tokenGroups {
-			&--#{$groupName} {
-				width: map.get($groupData, "width");
-			}
-		}
 	}
 
 	.treasure-calculator__title-group-row {
@@ -48,7 +36,7 @@
 	.treasure-calculator__fill-button-col {
 		padding-bottom: 0.5rem;
 
-		@include treasure-cols(true);
+		@include treasure-cols();
 
 		button {
 			margin-bottom: 0;
