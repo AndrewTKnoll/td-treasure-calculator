@@ -23,13 +23,18 @@
 		}
 	}
 
-	.treasure-calculator__count-title {
+	.treasure-calculator__ticket-title {
 		width: 4rem;
 		font-weight: 700;
 	}
 
+	.treasure-calculator__count-title {
+		width: 3rem;
+		font-weight: 700;
+	}
+
 	.treasure-calculator__token-titles {
-		width: calc(100% + (grid.$gutter-width - 12rem));
+		width: calc(100% + (grid.$gutter-width - 10rem));
 	}
 
 	.treasure-calculator__title-box {
