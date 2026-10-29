@@ -91,5 +91,9 @@ export const tokenData: TokenGroup[] = [{
 		name: "Greed",
 		identifier: "greed",
 		playerTokenKey: "beadOfGreed"
+	},{
+		name: "Need",
+		identifier: "need",
+		playerTokenKey: "beadOfNeed"
 	}]
 }]

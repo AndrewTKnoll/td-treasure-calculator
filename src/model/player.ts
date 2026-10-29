@@ -20,6 +20,7 @@ export class Player {
 
 	beadOfBounty = false
 	beadOfGreed = false
+	beadOfNeed = false
 
 	rareEnhancer = false
 	charmOfDivineGifts = false
@@ -83,6 +84,11 @@ export class Player {
 		if (this.beadOfGreed) {
 			treasureTotal += 2
 			enhancerCount += 1
+		}
+
+		if (this.beadOfNeed) {
+			treasureTotal += 2;
+			enhancerCount += 1;
 		}
 
 		// misc
