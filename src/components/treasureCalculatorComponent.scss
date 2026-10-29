@@ -1,3 +1,6 @@
+@use "base/mixins";
+@use "base/grid";
+
 .treasure-calculator {
 
 	.treasure-calculator__title-row {
@@ -26,11 +29,11 @@
 	}
 
 	.treasure-calculator__token-titles {
-		width: calc(100% + ($grid-gutter-width - 12rem));
+		width: calc(100% + (grid.$gutter-width - 12rem));
 	}
 
 	.treasure-calculator__title-box {
-		@include treasure-groups();
+		@include mixins.treasure-groups();
 		flex-direction: column;
 		border-width: 1px 1px 1px 0;
 		border-style: solid;
@@ -50,7 +53,7 @@
 	.treasure-calculator__fill-button-col {
 		padding-bottom: 0.5rem;
 
-		@include treasure-cols();
+		@include mixins.treasure-cols();
 
 		button {
 			margin-bottom: 0;

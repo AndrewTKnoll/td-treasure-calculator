@@ -9,11 +9,19 @@
 		"noPropertyAccessFromIndexSignature": true,
 		"noUnusedLocals": true,
 		"strict": true,
-		"baseUrl": "src/",
+		"paths": {
+			"base/*": ["./src/base/*"],
+			"components/*": ["./src/components/*"],
+			"model/*": ["./src/model/*"],
+			"pages/*": ["./src/pages/*"],
+			"utilities/*": ["./src/utilities/*"]
+		},
 		"removeComments": true,
 		"sourceMap": true,
 		"allowSyntheticDefaultImports": true,
 		"jsx": "react",
-		"target": "ES6"
+		"module": "nodenext",
+		"moduleResolution": "nodenext",
+		"target": "es2025"
 	}
 }

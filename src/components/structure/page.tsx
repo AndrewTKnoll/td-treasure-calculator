@@ -1,5 +1,5 @@
-import React, { ReactNode } from "react";
-import { renderToString } from "react-dom/server";
+import React, { ReactNode } from "react"
+import { renderToString } from "react-dom/server"
 
 export function renderPage(title: string, bodyContent: ReactNode): string {
 	return `<!DOCTYPE html>${renderToString(
@@ -12,5 +12,5 @@ export function renderPage(title: string, bodyContent: ReactNode): string {
 			</head>
 			<body>{bodyContent}</body>
 		</html>
-	)}`;
+	)}`
 }

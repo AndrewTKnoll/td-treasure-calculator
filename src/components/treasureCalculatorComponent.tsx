@@ -1,13 +1,13 @@
-import React, { Component, ReactNode } from "react";
+import React, { Component, ReactNode } from "react"
 
-import { PlayerGroupComponent } from "components/playerGroupComponent";
+import { PlayerGroupComponent } from "components/playerGroupComponent"
 
-import { PlayerTokenKey } from "model/player";
-import { tokenData, TokenGroup } from "model/token";
-import { TreasureCalculator } from "model/treasureCalculator";
+import { PlayerTokenKey } from "model/player"
+import { tokenData, TokenGroup } from "model/token"
+import { TreasureCalculator } from "model/treasureCalculator"
 
 interface TreasureCalculatorComponentProps {
-	calculator: TreasureCalculator;
+	calculator: TreasureCalculator
 }
 interface TreasureCalculatorComponentState {}
 
@@ -16,21 +16,21 @@ export class TreasureCalculatorComponent extends Component<TreasureCalculatorCom
 	private allPlayersHaveToken(name: PlayerTokenKey): boolean {
 		const tokenCount = this.props.calculator.players.reduce((count, player) => {
 			if (player[name]) {
-				return count + 1;
+				return count + 1
 			}
-			return count;
-		}, 0);
+			return count
+		}, 0)
 
-		return tokenCount === this.props.calculator.players.length;
+		return tokenCount === this.props.calculator.players.length
 	}
 
 	private setAllButtonClicked(token: PlayerTokenKey) {
-		const clear = this.allPlayersHaveToken(token);
+		const clear = this.allPlayersHaveToken(token)
 
 		this.props.calculator.players.forEach((player) => {
-			player[token] = !clear;
-		});
-		this.forceUpdate();
+			player[token] = !clear
+		})
+		this.forceUpdate()
 	}
 
 	private renderTitleBox(group: TokenGroup): ReactNode {
@@ -46,7 +46,7 @@ export class TreasureCalculatorComponent extends Component<TreasureCalculatorCom
 						className={`treasure-calculator__title treasure-calculator__title--${token.identifier} col`}>
 
 						{token.name}
-					</span>;
+					</span>
 				})}
 			</div>
 			<div className="treasure-calculator__fill-row row">
@@ -59,10 +59,10 @@ export class TreasureCalculatorComponent extends Component<TreasureCalculatorCom
 
 							{this.allPlayersHaveToken(token.playerTokenKey) ? "Clear" : "Set All"}
 						</button>
-					</div>;
+					</div>
 				})}
 			</div>
-		</div>;
+		</div>
 	}
 
 	override render() {
@@ -73,7 +73,7 @@ export class TreasureCalculatorComponent extends Component<TreasureCalculatorCom
 				</span>
 				<div className="treasure-calculator__token-titles col row">
 					{tokenData.map((group) => {
-						return this.renderTitleBox(group);
+						return this.renderTitleBox(group)
 					})}
 				</div>
 				<span className="treasure-calculator__count-title col">
@@ -87,8 +87,8 @@ export class TreasureCalculatorComponent extends Component<TreasureCalculatorCom
 				return <PlayerGroupComponent key={index}
 					calculator={this.props.calculator}
 					group={group}
-					onChange={this.forceUpdate.bind(this)}/>;
+					onChange={this.forceUpdate.bind(this)}/>
 			})}
-		</>;
+		</>
 	}
 }

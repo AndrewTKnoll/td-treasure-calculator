@@ -1,17 +1,13 @@
-/**** style import ****/
-import "./main.scss";
+import React from "react"
+import { createRoot } from "react-dom/client"
 
-/**** js imports ****/
-import React from "react";
-import { createRoot } from "react-dom/client";
+import { TreasureCalculatorComponent } from "components/treasureCalculatorComponent"
 
-import { TreasureCalculatorComponent } from "components/treasureCalculatorComponent";
-
-import { TreasureCalculator } from "model/treasureCalculator";
+import { TreasureCalculator } from "model/treasureCalculator"
 
 /**** initialize calculator ****/
 
-const calculator = new TreasureCalculator();
+const calculator = new TreasureCalculator()
 
-const root = createRoot(document.querySelector(".treasure-calculator")!);
-root.render(<TreasureCalculatorComponent calculator={calculator}/>);
+const root = createRoot(document.querySelector(".treasure-calculator")!)
+root.render(<TreasureCalculatorComponent calculator={calculator}/>)

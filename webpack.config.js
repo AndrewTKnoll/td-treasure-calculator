@@ -1,18 +1,18 @@
-"use strict";
+"use strict"
 
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const TerserPlugin = require("terser-webpack-plugin");
-const TSConfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin")
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const TerserPlugin = require("terser-webpack-plugin")
+const TSConfigPathsPlugin = require("tsconfig-paths-webpack-plugin")
 
-const glob = require("glob");
-const path = require("path");
-const webpack = require("webpack");
+const glob = require("glob")
+const path = require("node:path")
+const webpack = require("webpack")
 
-const npmPackage = require(path.resolve(__dirname, "package.json"));
+const npmPackage = require(path.resolve(__dirname, "package.json"))
 
-const siteOutputDirectory = path.resolve(__dirname, "site");
-const pagesSourceDirectory = path.resolve(__dirname, "src", "pages");
+const siteOutputDirectory = path.resolve(__dirname, "site")
+const pagesSourceDirectory = path.resolve(__dirname, "src", "pages")
 
 const baseConfig = {
 	entry: {
@@ -51,7 +51,7 @@ const baseConfig = {
 					loader: "sass-loader",
 					options: {
 						sassOptions: {
-							silenceDeprecation: "import"
+							loadPaths: [path.resolve(__dirname, "src")]
 						}
 					}
 				},
@@ -67,7 +67,7 @@ const baseConfig = {
 				hash: true,
 				cache: false,
 				template: file
-			});
+			})
 		}),
 		new MiniCssExtractPlugin({
 			filename: "[name].css"
@@ -96,21 +96,21 @@ const baseConfig = {
 		errorDetails: false,
 		modules: false
 	}
-};
+}
 
 module.exports = (env) => {
 	if (env.dev) {
-		baseConfig.mode = "development";
-		baseConfig.devtool = "inline-source-map";
+		baseConfig.mode = "development"
+		baseConfig.devtool = "inline-source-map"
 	}
 
 	if (env.dist) {
-		baseConfig.mode = "production";
+		baseConfig.mode = "production"
 	}
 
 	if (env.open) {
-		baseConfig.devServer.open = [npmPackage.name];
+		baseConfig.devServer.open = [npmPackage.name]
 	}
 
-	return baseConfig;
-};
+	return baseConfig
+}

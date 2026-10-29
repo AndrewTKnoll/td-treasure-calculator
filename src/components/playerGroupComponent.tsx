@@ -1,27 +1,27 @@
-import React, { Component, ChangeEvent } from "react";
+import React, { Component, ChangeEvent } from "react"
 
-import { PlayerRowComponent } from "components/playerRowComponent";
-import { CalculatorRowComponent } from "components/calculatorRowComponent";
+import { PlayerRowComponent } from "components/playerRowComponent"
+import { CalculatorRowComponent } from "components/calculatorRowComponent"
 
-import { PlayerGroup } from "model/playerGroup";
-import { TreasureCalculator } from "model/treasureCalculator";
+import { PlayerGroup } from "model/playerGroup"
+import { TreasureCalculator } from "model/treasureCalculator"
 
 interface PlayerGroupComponentProps {
-	calculator: TreasureCalculator;
-	group: PlayerGroup;
-	onChange: () => void;
+	calculator: TreasureCalculator
+	group: PlayerGroup
+	onChange: () => void
 }
 interface PlayerGroupComponentState {}
 
 export class PlayerGroupComponent extends Component<PlayerGroupComponentProps, PlayerGroupComponentState> {
 
 	private playerCountUpdated(event: ChangeEvent<HTMLSelectElement>) {
-		const newCount = Number.parseInt(event.target.value);
+		const newCount = Number.parseInt(event.target.value)
 
-		this.props.group.playerCount = newCount;
-		this.props.calculator.recalculateGroups();
+		this.props.group.playerCount = newCount
+		this.props.calculator.recalculateGroups()
 
-		this.props.onChange();
+		this.props.onChange()
 	}
 
 	override render() {
@@ -37,7 +37,7 @@ export class PlayerGroupComponent extends Component<PlayerGroupComponentProps, P
 								value={index + 1}>
 
 								{index + 1}
-							</option>;
+							</option>
 						})}
 					</select>
 				</div>
@@ -45,13 +45,13 @@ export class PlayerGroupComponent extends Component<PlayerGroupComponentProps, P
 					{this.props.group.players.map((player, index) => {
 						return <PlayerRowComponent key={index}
 							player={player}
-							onChange={this.props.onChange}/>;
+							onChange={this.props.onChange}/>
 					})}
 				</div>
 				<div className="player-group__group-total-col col">
 					{this.props.group.totalTreasure}
 				</div>
 			</div>
-		</>;
+		</>
 	}
 }

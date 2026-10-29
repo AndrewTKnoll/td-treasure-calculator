@@ -1,11 +1,13 @@
+@use "base/mixins";
+
 .calculator-row-component {
 
 	.calculator-row-component__token-group {
-		@include treasure-groups();
+		@include mixins.treasure-groups();
 		border-style: dashed;
 	}
 
 	.calculator-row-component__token {
-		@include treasure-cols();
+		@include mixins.treasure-cols();
 	}
 }

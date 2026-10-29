@@ -1,8 +1,4 @@
-@import "./base/variables";
-@import "./base/mixins";
+@use "base/reset";
+@use "base/grid";
 
-@import "./base/reset";
-@import "./base/breakpoints";
-@import "./base/grid";
-
-@import "./components/**/*.scss";
+@use "components/**/*.scss";
