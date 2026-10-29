@@ -28,6 +28,10 @@ export const tokenData: TokenGroup[] = [{
 		identifier: "sixth-level",
 		playerTokenKey: "sixthLevel"
 	},{
+		name: "Mythic Coin of Wealth",
+		identifier: "coin-of-wealth",
+		playerTokenKey: "coinOfWealth"
+	},{
 		name: "Rare TE",
 		identifier: "rare-te",
 		playerTokenKey: "rareEnhancer"

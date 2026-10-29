@@ -7,6 +7,7 @@ export type PlayerTokenKey = KeyOfType<Player, boolean>
 export class Player {
 	private readonly goodFortuneCoordinator: GoodFortuneCoordinator
 
+	coinOfWealth = false
 	charmOfAvarice = false
 
 	charmOfGoodFortune = false
@@ -36,19 +37,24 @@ export class Player {
 		let treasureTotal = 3
 		let enhancerCount = 0
 
+		if (this.coinOfWealth) {
+			treasureTotal += 5 // max CoGF + 1 extra
+			enhancerCount += 1
+		}
+
 		// avarice components
 
-		if (this.charmOfAvarice || this.charmOfGoodFortune) {
+		if (!this.coinOfWealth && (this.charmOfAvarice || this.charmOfGoodFortune)) {
 			treasureTotal += this.goodFortuneCoordinator.goodFortuneValue
 			enhancerCount += 1
 		}
 
-		if (this.charmOfAvarice || this.ringOfRiches) {
+		if (this.coinOfWealth || this.charmOfAvarice || this.ringOfRiches) {
 			treasureTotal += 3
 			enhancerCount += 1
 		}
 
-		if (this.charmOfAvarice || this.hornOfPlenty) {
+		if (this.coinOfWealth || this.charmOfAvarice || this.hornOfPlenty) {
 			treasureTotal += 6
 			enhancerCount += 1
 		}
@@ -76,17 +82,17 @@ export class Player {
 
 		// beads
 
-		if (this.beadOfBounty) {
+		if (this.coinOfWealth || this.beadOfBounty) {
 			treasureTotal += 2
 			enhancerCount += 1
 		}
 
-		if (this.beadOfGreed) {
+		if (this.coinOfWealth || this.beadOfGreed) {
 			treasureTotal += 2
 			enhancerCount += 1
 		}
 
-		if (this.beadOfNeed) {
+		if (this.coinOfWealth || this.beadOfNeed) {
 			treasureTotal += 2;
 			enhancerCount += 1;
 		}

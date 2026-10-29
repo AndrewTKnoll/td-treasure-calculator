@@ -9,8 +9,8 @@ export class GoodFortuneCoordinator {
 
 	get goodFortuneValue(): number {
 		const goodFortuneCount = this.players.reduce((count, player) => {
-			if (player.charmOfAvarice || player.charmOfGoodFortune) {
-				return count + 1
+			if (player.coinOfWealth || player.charmOfAvarice || player.charmOfGoodFortune) {
+				return count + 1;
 			}
 			return count
 		}, 0)
