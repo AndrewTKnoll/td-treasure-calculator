@@ -1,6 +1,6 @@
 {
   "name": "td-treasure-calculator",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "description": "Helper tool that calculates TD treasure values",
   "private": true,
   "scripts": {
