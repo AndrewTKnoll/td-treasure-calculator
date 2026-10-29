@@ -68,7 +68,7 @@ export class TreasureCalculatorComponent extends Component<TreasureCalculatorCom
 	override render() {
 		return <>
 			<div className="treasure-calculator__title-row row">
-				<span className="treasure-calculator__count-title col">
+				<span className="treasure-calculator__ticket-title col">
 					Tickets in Group
 				</span>
 				<div className="treasure-calculator__token-titles col row">
