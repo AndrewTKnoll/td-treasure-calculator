@@ -1,23 +1,23 @@
-import { PlayerTokenKey } from "model/player";
+import { PlayerTokenKey } from "model/player"
 
 export interface Token {
-	readonly name: string;
-	readonly identifier: string;
-	readonly playerTokenKey: PlayerTokenKey;
+	readonly name: string
+	readonly identifier: string
+	readonly playerTokenKey: PlayerTokenKey
 }
 
 export interface TokenGroup {
-	readonly name: string;
-	readonly identifier: string;
-	readonly tokens: Token[];
+	readonly name: string
+	readonly identifier: string
+	readonly tokens: Token[]
 }
 
 export function mapAllTokens<ResultType>(callback: (token: Token) => ResultType): ResultType[] {
 	return tokenData.map((group) => {
-		return group.tokens;
+		return group.tokens
 	})
 	.flat(1)
-	.map(callback);
+	.map(callback)
 }
 
 export const tokenData: TokenGroup[] = [{
@@ -92,4 +92,4 @@ export const tokenData: TokenGroup[] = [{
 		identifier: "greed",
 		playerTokenKey: "beadOfGreed"
 	}]
-}];
+}]
