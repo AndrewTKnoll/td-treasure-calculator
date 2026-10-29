@@ -1,5 +1,7 @@
 @use "sass:map";
 
+@use "base/variables";
+
 @mixin dark-mode() {
 	@media (prefers-color-scheme: dark) {
 		@content;
@@ -14,7 +16,7 @@
 		border-left-width: 1px;
 	}
 
-	@each $groupName, $groupData in $tokenGroups {
+	@each $groupName, $groupData in variables.$tokenGroups {
 		&--#{$groupName} {
 			width: map.get($groupData, "width");
 		}
@@ -24,7 +26,7 @@
 @mixin treasure-cols() {
 	$accented: true;
 
-	@each $groupName, $groupData in $tokenGroups {
+	@each $groupName, $groupData in variables.$tokenGroups {
 		@each $tokenName, $tokenWidth in map.get($groupData, "tokens") {
 			&--#{$tokenName} {
 				width: $tokenWidth;

@@ -1,7 +1,3 @@
-/**** style import ****/
-import "./main.scss";
-
-/**** js imports ****/
 import React from "react";
 import { createRoot } from "react-dom/client";
 

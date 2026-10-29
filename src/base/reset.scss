@@ -1,10 +1,12 @@
+@use "base/mixins";
+
 :root {
 	color-scheme: light dark;
 	--accent-color: #ccc;
 	--background-color: #fff;
 	--text-color: #000;
 
-	@include dark-mode() {
+	@include mixins.dark-mode() {
 		--accent-color: #555;
 		--background-color: #000;
 		--text-color: #fff;

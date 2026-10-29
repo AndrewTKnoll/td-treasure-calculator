@@ -6,7 +6,7 @@ const TerserPlugin = require("terser-webpack-plugin");
 const TSConfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 
 const glob = require("glob");
-const path = require("path");
+const path = require("node:path");
 const webpack = require("webpack");
 
 const npmPackage = require(path.resolve(__dirname, "package.json"));
@@ -51,7 +51,7 @@ const baseConfig = {
 					loader: "sass-loader",
 					options: {
 						sassOptions: {
-							silenceDeprecation: "import"
+							loadPaths: [path.resolve(__dirname, "src")]
 						}
 					}
 				},
