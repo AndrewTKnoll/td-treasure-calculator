@@ -21,13 +21,25 @@ export class PlayerRowComponent extends Component<PlayerRowComponentProps, Playe
 		return <div className="player-row row">
 			<CalculatorRowComponent wrapperClass="player-row__token-wrapper"
 				contentForToken={(token) => {
-					return <label key={token.identifier}
-						className="player-row__token-label">
+					const conflictMessage = token.conflicts.reduce<string | undefined>((message, conflict) => {
+						return message ?? (this.props.player[conflict.token] ? conflict.message : undefined)
+					}, undefined)
 
-						<input type="checkbox"
-							checked={this.props.player[token.playerTokenKey]}
-							onChange={this.setToken.bind(this, token.playerTokenKey)}/>
-					</label>
+					if (conflictMessage) {
+						return <p className="player-row__token-label">
+							{conflictMessage}
+						</p>
+					}
+
+					return <>
+						<label key={token.identifier}
+							className="player-row__token-label">
+
+							<input type="checkbox"
+								checked={this.props.player[token.playerTokenKey]}
+								onChange={this.setToken.bind(this, token.playerTokenKey)}/>
+						</label>
+					</>
 				}}/>
 			<div className="player-row__total col">
 				{this.props.player.totalTreasure}

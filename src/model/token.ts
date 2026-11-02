@@ -4,6 +4,10 @@ export interface Token {
 	readonly name: string
 	readonly identifier: string
 	readonly playerTokenKey: PlayerTokenKey
+	readonly conflicts: {
+		token: PlayerTokenKey
+		message: string
+	}[]
 }
 
 export interface TokenGroup {
@@ -26,23 +30,33 @@ export const tokenData: TokenGroup[] = [{
 	tokens: [{
 		name: "6th Level Player",
 		identifier: "sixth-level",
-		playerTokenKey: "sixthLevel"
+		playerTokenKey: "sixthLevel",
+		conflicts: []
 	},{
 		name: "Mythic Coin of Wealth",
 		identifier: "coin-of-wealth",
-		playerTokenKey: "coinOfWealth"
+		playerTokenKey: "coinOfWealth",
+		conflicts: []
 	},{
 		name: "Rare TE",
 		identifier: "rare-te",
-		playerTokenKey: "rareEnhancer"
+		playerTokenKey: "rareEnhancer",
+		conflicts: [
+			{
+				token: "charmOfDivineGifts",
+				message: "CoDG"
+			}
+		]
 	},{
 		name: "Charm of Divine Gifts",
 		identifier: "divine-gifts",
-		playerTokenKey: "charmOfDivineGifts"
+		playerTokenKey: "charmOfDivineGifts",
+		conflicts: []
 	},{
 		name: "Charm of Treasure Boosting",
 		identifier: "treasure-boosting",
-		playerTokenKey: "charmOfTreasureBoosting"
+		playerTokenKey: "charmOfTreasureBoosting",
+		conflicts: []
 	}]
 },{
 	name: "Charm of Avarice Components",
@@ -50,23 +64,73 @@ export const tokenData: TokenGroup[] = [{
 	tokens: [{
 		name: "Charm of Avarice",
 		identifier: "avarice",
-		playerTokenKey: "charmOfAvarice"
+		playerTokenKey: "charmOfAvarice",
+		conflicts: [
+			{
+				token: "coinOfWealth",
+				message: "CoW"
+			}
+		]
 	},{
 		name: "Charm of Good Fortune",
 		identifier: "good-fortune",
-		playerTokenKey: "charmOfGoodFortune"
+		playerTokenKey: "charmOfGoodFortune",
+		conflicts: [
+			{
+				token: "coinOfWealth",
+				message: "CoW"
+			},
+			{
+				token: "charmOfAvarice",
+				message: "CoA"
+			}
+		]
 	},{
 		name: "Ring of Riches",
 		identifier: "ring",
-		playerTokenKey: "ringOfRiches"
+		playerTokenKey: "ringOfRiches",
+		conflicts: [
+			{
+				token: "coinOfWealth",
+				message: "CoW"
+			},
+			{
+				token: "charmOfAvarice",
+				message: "CoA"
+			}
+		]
 	},{
 		name: "Horn of Plenty",
 		identifier: "horn",
-		playerTokenKey: "hornOfPlenty"
+		playerTokenKey: "hornOfPlenty",
+		conflicts: [
+			{
+				token: "coinOfWealth",
+				message: "CoW"
+			},
+			{
+				token: "charmOfAvarice",
+				message: "CoA"
+			}
+		]
 	},{
 		name: "Amulet of Treasure Finding",
 		identifier: "amulet",
-		playerTokenKey: "amuletOfTreasureFinding"
+		playerTokenKey: "amuletOfTreasureFinding",
+		conflicts: [
+			{
+				token: "coinOfWealth",
+				message: "CoW"
+			},
+			{
+				token: "charmOfAvarice",
+				message: "CoA"
+			},
+			{
+				token: "hornOfPlenty",
+				message: "HoP"
+			}
+		]
 	}]
 },{
 	name: "Ioun Stone Nuggets",
@@ -74,15 +138,18 @@ export const tokenData: TokenGroup[] = [{
 	tokens: [{
 		name: "Silver",
 		identifier: "silver",
-		playerTokenKey: "silverNugget"
+		playerTokenKey: "silverNugget",
+		conflicts: []
 	},{
 		name: "Gold",
 		identifier: "gold",
-		playerTokenKey: "goldNugget"
+		playerTokenKey: "goldNugget",
+		conflicts: []
 	},{
 		name: "Platinum",
 		identifier: "platinum",
-		playerTokenKey: "platinumNugget"
+		playerTokenKey: "platinumNugget",
+		conflicts: []
 	}]
 },{
 	name: "Beads",
@@ -90,14 +157,32 @@ export const tokenData: TokenGroup[] = [{
 	tokens: [{
 		name: "Bounty",
 		identifier: "bounty",
-		playerTokenKey: "beadOfBounty"
+		playerTokenKey: "beadOfBounty",
+		conflicts: [
+			{
+				token: "coinOfWealth",
+				message: "CoW"
+			}
+		]
 	},{
 		name: "Greed",
 		identifier: "greed",
-		playerTokenKey: "beadOfGreed"
+		playerTokenKey: "beadOfGreed",
+		conflicts: [
+			{
+				token: "coinOfWealth",
+				message: "CoW"
+			}
+		]
 	},{
 		name: "Need",
 		identifier: "need",
-		playerTokenKey: "beadOfNeed"
+		playerTokenKey: "beadOfNeed",
+		conflicts: [
+			{
+				token: "coinOfWealth",
+				message: "CoW"
+			}
+		]
 	}]
 }]
