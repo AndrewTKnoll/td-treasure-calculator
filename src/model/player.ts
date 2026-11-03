@@ -33,86 +33,118 @@ export class Player {
 		coordinator.register(this)
 	}
 
-	get totalTreasure(): number {
-		let treasureTotal = 3
-		let enhancerCount = 0
-
-		if (this.coinOfWealth) {
-			treasureTotal += 5 // max CoGF + 1 extra
-			enhancerCount += 1
-		}
+	get tokenCount(): number {
+		let count = 0
 
 		// avarice components
 
-		if (!this.coinOfWealth && (this.charmOfAvarice || this.charmOfGoodFortune)) {
-			treasureTotal += this.goodFortuneCoordinator.goodFortuneValue
-			enhancerCount += 1
+		if (this.coinOfWealth || this.charmOfAvarice || this.charmOfGoodFortune) {
+			count += 1
+		}
+		if (this.coinOfWealth || this.charmOfAvarice || this.ringOfRiches) {
+			count += 1
+		}
+		if (this.coinOfWealth || this.charmOfAvarice || this.hornOfPlenty || this.amuletOfTreasureFinding) {
+			count += 1
 		}
 
+		// nuggets
+
+		if (this.silverNugget) {
+			count += 1
+		}
+		if (this.goldNugget) {
+			count += 1
+		}
+		if (this.platinumNugget) {
+			count += 1
+		}
+
+		// beads
+
+		if (this.coinOfWealth || this.beadOfBounty) {
+			count += 1
+		}
+		if (this.coinOfWealth || this.beadOfGreed) {
+			count += 1
+		}
+		if (this.coinOfWealth || this.beadOfNeed) {
+			count += 1
+		}
+
+		// misc
+
+		if (count === 0 && (this.rareEnhancer || this.charmOfDivineGifts)) {
+			count += 1
+		}
+
+		return count
+	}
+
+	get totalTreasure(): number {
+		let treasureTotal = 3
+		let hasStackingEnhancer = false
+
+		// avarice components
+
+		if (this.coinOfWealth || this.charmOfAvarice || this.charmOfGoodFortune) {
+			treasureTotal += (this.coinOfWealth ? 5 : this.goodFortuneCoordinator.goodFortuneValue) // CoW === max CoGF + 1 extra
+			hasStackingEnhancer = true
+		}
 		if (this.coinOfWealth || this.charmOfAvarice || this.ringOfRiches) {
 			treasureTotal += 3
-			enhancerCount += 1
+			hasStackingEnhancer = true
 		}
-
 		if (this.coinOfWealth || this.charmOfAvarice || this.hornOfPlenty) {
 			treasureTotal += 6
-			enhancerCount += 1
+			hasStackingEnhancer = true
 		}
 		else if (this.amuletOfTreasureFinding) {
 			treasureTotal += 4
-			enhancerCount += 1
+			hasStackingEnhancer = true
 		}
 
 		// nuggets
 
 		if (this.silverNugget) {
 			treasureTotal += 2
-			enhancerCount += 1
+			hasStackingEnhancer = true
 		}
-
 		if (this.goldNugget) {
 			treasureTotal += 2
-			enhancerCount += 1
+			hasStackingEnhancer = true
 		}
-
 		if (this.platinumNugget) {
 			treasureTotal += 2
-			enhancerCount += 1
+			hasStackingEnhancer = true
 		}
 
 		// beads
 
 		if (this.coinOfWealth || this.beadOfBounty) {
 			treasureTotal += 2
-			enhancerCount += 1
+			hasStackingEnhancer = true
 		}
-
 		if (this.coinOfWealth || this.beadOfGreed) {
 			treasureTotal += 2
-			enhancerCount += 1
+			hasStackingEnhancer = true
 		}
-
 		if (this.coinOfWealth || this.beadOfNeed) {
 			treasureTotal += 2
-			enhancerCount += 1
+			hasStackingEnhancer = true
 		}
 
 		// misc
 
-		if (this.rareEnhancer && enhancerCount === 0 && !this.charmOfDivineGifts) {
+		if (this.rareEnhancer && !this.charmOfDivineGifts && !hasStackingEnhancer) {
 			treasureTotal += 1
-			enhancerCount += 1
 		}
-
-		if (this.charmOfDivineGifts && enhancerCount === 0) {
+		if (this.charmOfDivineGifts && !hasStackingEnhancer) {
 			treasureTotal += 2
-			enhancerCount += 1
 		}
-
-		if (this.charmOfTreasureBoosting && enhancerCount === 1) {
+		if (this.charmOfTreasureBoosting && this.tokenCount === 1) {
 			treasureTotal += 1
 		}
-
 		if (this.sixthLevel) {
 			treasureTotal += 1
 		}

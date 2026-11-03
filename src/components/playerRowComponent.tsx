@@ -21,9 +21,18 @@ export class PlayerRowComponent extends Component<PlayerRowComponentProps, Playe
 		return <div className="player-row row">
 			<CalculatorRowComponent wrapperClass="player-row__token-wrapper"
 				contentForToken={(token) => {
-					const conflictMessage = token.conflicts.reduce<string | undefined>((message, conflict) => {
+					let conflictMessage = undefined
+
+					if (token.minimumTokenCount !== undefined && this.props.player.tokenCount < token.minimumTokenCount.count) {
+						conflictMessage = token.minimumTokenCount.message
+					}
+					if (token.maximumTokenCount !== undefined && this.props.player.tokenCount > token.maximumTokenCount.count) {
+						conflictMessage = token.maximumTokenCount.message
+					}
+
+					conflictMessage = token.conflicts.reduce<string | undefined>((message, conflict) => {
 						return message ?? (this.props.player[conflict.token] ? conflict.message : undefined)
-					}, undefined)
+					}, conflictMessage)
 
 					if (conflictMessage) {
 						return <p className="player-row__token-label">

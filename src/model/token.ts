@@ -4,6 +4,14 @@ export interface Token {
 	readonly name: string
 	readonly identifier: string
 	readonly playerTokenKey: PlayerTokenKey
+	readonly minimumTokenCount?: {
+		count: number
+		message: string
+	} | undefined
+	readonly maximumTokenCount?: {
+		count: number
+		message: string
+	} | undefined
 	readonly conflicts: {
 		token: PlayerTokenKey
 		message: string
@@ -56,6 +64,14 @@ export const tokenData: TokenGroup[] = [{
 		name: "Charm of Treasure Boosting",
 		identifier: "treasure-boosting",
 		playerTokenKey: "charmOfTreasureBoosting",
+		minimumTokenCount: {
+			count: 1,
+			message: "No TE"
+		},
+		maximumTokenCount: {
+			count: 1,
+			message: "Multi"
+		},
 		conflicts: []
 	}]
 },{
