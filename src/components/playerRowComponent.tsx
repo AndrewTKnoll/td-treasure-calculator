@@ -31,7 +31,11 @@ export class PlayerRowComponent extends Component<PlayerRowComponentProps, Playe
 					}
 
 					conflictMessage = token.conflicts.reduce<string | undefined>((message, conflict) => {
-						return message ?? (this.props.player[conflict.token] ? conflict.message : undefined)
+						const conflictTokenFound = conflict.tokens.reduce((found, token) => {
+							return found || this.props.player[token]
+						}, false)
+
+						return message ?? (conflictTokenFound ? conflict.message : undefined)
 					}, conflictMessage)
 
 					if (conflictMessage) {
