@@ -21,13 +21,38 @@ export class PlayerRowComponent extends Component<PlayerRowComponentProps, Playe
 		return <div className="player-row row">
 			<CalculatorRowComponent wrapperClass="player-row__token-wrapper"
 				contentForToken={(token) => {
-					return <label key={token.identifier}
-						className="player-row__token-label">
+					let conflictMessage = undefined
 
-						<input type="checkbox"
-							checked={this.props.player[token.playerTokenKey]}
-							onChange={this.setToken.bind(this, token.playerTokenKey)}/>
-					</label>
+					if (token.minimumTokenCount !== undefined && this.props.player.tokenCount < token.minimumTokenCount.count) {
+						conflictMessage = token.minimumTokenCount.message
+					}
+					if (token.maximumTokenCount !== undefined && this.props.player.tokenCount > token.maximumTokenCount.count) {
+						conflictMessage = token.maximumTokenCount.message
+					}
+
+					conflictMessage = token.conflicts.reduce<string | undefined>((message, conflict) => {
+						const conflictTokenFound = conflict.tokens.reduce((found, token) => {
+							return found || this.props.player[token]
+						}, false)
+
+						return message ?? (conflictTokenFound ? conflict.message : undefined)
+					}, conflictMessage)
+
+					if (conflictMessage) {
+						return <p className="player-row__token-label">
+							{conflictMessage}
+						</p>
+					}
+
+					return <>
+						<label key={token.identifier}
+							className="player-row__token-label">
+
+							<input type="checkbox"
+								checked={this.props.player[token.playerTokenKey]}
+								onChange={this.setToken.bind(this, token.playerTokenKey)}/>
+						</label>
+					</>
 				}}/>
 			<div className="player-row__total col">
 				{this.props.player.totalTreasure}
